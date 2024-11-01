@@ -6,7 +6,7 @@
 /*   By: ssoumill <ssoumill@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 12:38:12 by ssoumill          #+#    #+#             */
-/*   Updated: 2024/10/30 17:08:58 by ssoumill         ###   ########.fr       */
+/*   Updated: 2024/11/01 16:44:33 by ssoumill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,10 +69,12 @@ void	sleeping(t_philo *philo)
 // 	}
 // 	return (0);
 // }
-void	eating(t_philo *philo, int	i)
+void	eating(t_philo *philo)
 {
 	if (philo->data->death == 1)
 	{
+		philo->is_eating = 1;
+		philo->t_last_meal = gettime();
 		if (philo->data->death)
 		{
 			printf("%zu %d philosopher is eating\n", gettime()
@@ -81,6 +83,7 @@ void	eating(t_philo *philo, int	i)
 			ft_usleep(philo->data->eating_time, philo);
 			pthread_mutex_lock(&philo->data->print);
 			philo->t_last_meal = gettime(); // voir quand renitialise
+			philo->is_eating = 0;
 			pthread_mutex_unlock(&philo->data->print);
 			pthread_mutex_unlock(philo->right_fork);
 			pthread_mutex_unlock(&philo->left_fork);
@@ -130,26 +133,23 @@ void	*routine(void *void_philo)
 		if (philo->meal_eat == philo->data->nbr_meal)
 		{
 			philo->data->finish++;
-			printf("%zu philo %d FINI DE MANGER\n\n", gettime()
-				- philo->data->start_time, philo->id);
+			//printf("%zu philo %d FINI DE MANGER\n\n", gettime()
+			//	- philo->data->start_time, philo->id);
 			break ;
 		}
-		if (philo->is_dead == 0)
+	/* 	if (philo->is_dead == 0)
 			printf("%zu philo %d is dead\n", gettime()
-				- philo->data->start_time, philo->id);
+				- philo->data->start_time, philo->id); */
 		if (!philo->data->death)
 		{
-			printf("%zu philo %d is dead ET ON EST DANS LA CONDITION BREAK\n\n",
-				gettime() - philo->data->start_time, philo->id);
+			//printf("%zu philo %d is dead ET ON EST DANS LA CONDITION BREAK\n\n",
+			//	gettime() - philo->data->start_time, philo->id);
 			break ;
 		}
 		ft_fork(philo);
 		sleeping(philo);
 		thinking(philo);
 	}
-	if (philo->is_dead == 0)
-		printf("%zu philo %d is dead\n", gettime() - philo->data->start_time,
-			philo->id);
 	if (philo->data->finish == philo->data->nbr_philo)
 		printf("%zu All philo have eat %lu nbr of meal\n", gettime()
 			- philo->data->start_time, philo->meal_eat);
@@ -175,19 +175,27 @@ int	ft_start_philo(t_data *data)
 		i = 0;
 		while (i < data->nbr_philo)
 		{
+			
+			if (data->death == 0)
+			break ;
+			if (data->philo->meal_eat == data->nbr_meal)
+			 	break;
 			pthread_mutex_lock(&data->print);
-			if (gettime() - data->philo[i].t_last_meal > data->death_time)
+			if (gettime() - data->philo[i].t_last_meal > data->death_time && data->philo[i].is_eating == 0)
 			{
 				data->philo[i].is_dead = 0;
 				data->death = 0;
+				if (data->philo[i].is_dead == 0)
+					printf("%zu philo %d is dead\n", gettime()
+					- data->start_time, data->philo[i].id);
 				pthread_mutex_unlock(&data->print);
 				break ;
 			}
 			pthread_mutex_unlock(&data->print);
 			i++;
 		}
-		if (data->death == 0)
-			break;
+		if (data->death == 0 || data->finish == data->nbr_philo)
+			break ;
 		// ft_usleep(10, NULL);
 	}
 	i = 0;
