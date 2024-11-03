@@ -6,7 +6,7 @@
 /*   By: ssoumill <ssoumill@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 14:09:23 by ssoumill          #+#    #+#             */
-/*   Updated: 2024/11/01 16:41:56 by ssoumill         ###   ########.fr       */
+/*   Updated: 2024/11/03 13:59:23 by ssoumill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ typedef struct s_philo
 	long				t_last_meal;
 	int					is_dead;
 	int					id;
-	long			    meal_eat;
+	long				meal_eat;
 	pthread_t			thread;
 	pthread_mutex_t		left_fork;
 	pthread_mutex_t		*right_fork;
@@ -55,5 +55,9 @@ int						ft_init(t_data *data, char **argv, int argc);
 int						ft_start_philo(t_data *data);
 long					ft_atol(const char *str);
 void					*routine(void *void_philo);
+void					print_death(t_data *data, int i);
+void					ft_usleep(long time_to_sleep, t_philo *philo);
+long					gettime(void);
+void					monitor(t_data *data, int i);
 
 #endif

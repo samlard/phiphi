@@ -6,7 +6,7 @@ CFLAGS	=	-Wall -Wextra -Werror -g
 
 GFLAGS	=	-g
 
-#DFLAGS	=	-fsanitize=address -fsanitize=undefined
+DFLAGS	=	-fsanitize=thread
 #---------------------------------------------------------#
 
 SRC_DIR	=	src

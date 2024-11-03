@@ -6,7 +6,7 @@
 /*   By: ssoumill <ssoumill@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 16:27:37 by ssoumill          #+#    #+#             */
-/*   Updated: 2024/10/25 12:49:05 by ssoumill         ###   ########.fr       */
+/*   Updated: 2024/11/03 14:04:56 by ssoumill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,42 @@ long	ft_atol(const char *str)
 		i++;
 	}
 	return (nb * signe);
+}
+
+void	print_death(t_data *data, int i)
+{
+	data->philo[i].is_dead = 0;
+	data->death = 0;
+	if (data->philo[i].is_dead == 0)
+		printf("%zu philo %d is dead\n", gettime() - data->start_time,
+			data->philo[i].id);
+}
+
+void	ft_usleep(long time_to_sleep, t_philo *philo)
+{
+	long	current_time;
+
+	current_time = gettime();
+	if (philo == NULL)
+	{
+		while (gettime() - current_time < time_to_sleep)
+			usleep(200);
+	}
+	else
+	{
+		while (philo->data->death && gettime() - current_time < time_to_sleep)
+			usleep(200);
+	}
+}
+
+long	gettime(void)
+{
+	struct timeval	time;
+
+	if (gettimeofday(&time, NULL) == -1)
+	{
+		printf("Error in time external function!\n");
+		return ((long)-1);
+	}
+	return ((time.tv_sec * 1000) + (time.tv_usec / 1000));
 }

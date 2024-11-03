@@ -6,7 +6,7 @@
 /*   By: ssoumill <ssoumill@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 17:42:07 by ssoumill          #+#    #+#             */
-/*   Updated: 2024/11/01 16:42:16 by ssoumill         ###   ########.fr       */
+/*   Updated: 2024/11/03 12:36:51 by ssoumill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,22 @@ int	ft_init(t_data *data, char **argv, int argc)
 	ft_init_struct(data, argv, argc);
 	if (ft_init_philo(data))
 		return (1);
+	return (0);
+}
+
+int	ft_start_philo(t_data *data)
+{
+	int i;
+
+	i = 0;
+	data->start_time = gettime();
+	while (i < data->nbr_philo)
+	{
+		data->philo[i].t_last_meal = data->start_time;
+		if (pthread_create(&(data->philo[i].thread), NULL, &routine,
+				&data->philo[i]))
+			return (1);
+		i++;
+	}
 	return (0);
 }
