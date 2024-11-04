@@ -6,15 +6,13 @@
 /*   By: ssoumill <ssoumill@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 14:09:23 by ssoumill          #+#    #+#             */
-/*   Updated: 2024/11/04 16:35:17 by ssoumill         ###   ########.fr       */
+/*   Updated: 2024/11/04 16:45:56 by ssoumill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHILO_H
 # define PHILO_H
 
-# include "ft_printf.h"
-# include "libft.h"
 # include <pthread.h>
 # include <stdio.h>
 # include <stdlib.h>
