@@ -6,7 +6,7 @@
 /*   By: ssoumill <ssoumill@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 17:42:07 by ssoumill          #+#    #+#             */
-/*   Updated: 2024/11/04 12:57:45 by ssoumill         ###   ########.fr       */
+/*   Updated: 2024/11/04 14:25:03 by ssoumill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ static int	ft_init_philo(t_data *data)
 	i = 0;
 	while (i < data->nbr_philo)
 	{
-		(data->philo[i]).is_eating = 0;
 		(data->philo[i]).is_dead = 1;
 		(data->philo[i]).id = i;
 		(data->philo[i]).data = data;

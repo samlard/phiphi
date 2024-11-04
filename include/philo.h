@@ -6,7 +6,7 @@
 /*   By: ssoumill <ssoumill@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 14:09:23 by ssoumill          #+#    #+#             */
-/*   Updated: 2024/11/04 13:02:44 by ssoumill         ###   ########.fr       */
+/*   Updated: 2024/11/04 14:24:55 by ssoumill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ typedef struct s_data
 typedef struct s_philo
 {
 	t_data				*data;
-	int					is_eating;
 	long				t_last_meal;
 	int					is_dead;
 	int					id;

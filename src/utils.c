@@ -6,7 +6,7 @@
 /*   By: ssoumill <ssoumill@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 16:27:37 by ssoumill          #+#    #+#             */
-/*   Updated: 2024/11/04 13:03:12 by ssoumill         ###   ########.fr       */
+/*   Updated: 2024/11/04 14:27:52 by ssoumill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	print_death(t_data *data, int i)
 {
 	pthread_mutex_lock(&data->is_he_dead);
 	data->death = 0;
-	printf("%zu philo %d is dead\n", gettime() - data->start_time,
+	printf("%zu philo %d is dead \n", gettime() - data->start_time,
 		data->philo[i].id);
 	pthread_mutex_unlock(&data->is_he_dead);
 }
