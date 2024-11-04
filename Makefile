@@ -11,7 +11,7 @@ DFLAGS	=	-fsanitize=thread
 
 SRC_DIR	=	src
 
-SRC		=	src/init_struct.c src/main.c src/monitor.c src/parsing.c src/routine.c src/utils_1.c src/utils_2.c
+SRC		=	src/init_struct.c src/main.c src/monitor.c src/parsing.c src/routine.c src/utils_1.c src/utils_2.c src/one_philo.c
 
 OBJ_DIR	=	obj
 

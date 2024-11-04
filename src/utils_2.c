@@ -6,7 +6,7 @@
 /*   By: ssoumill <ssoumill@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:39:18 by ssoumill          #+#    #+#             */
-/*   Updated: 2024/11/04 16:40:12 by ssoumill         ###   ########.fr       */
+/*   Updated: 2024/11/04 19:31:51 by ssoumill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	ft_usleep(long time_to_sleep, t_philo *philo)
 	if (philo == NULL)
 	{
 		while (gettime() - current_time < time_to_sleep)
-			usleep(200);
+			usleep(100);
 	}
 	else
 	{

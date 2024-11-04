@@ -6,7 +6,7 @@
 /*   By: ssoumill <ssoumill@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 16:16:32 by ssoumill          #+#    #+#             */
-/*   Updated: 2024/10/29 18:54:34 by ssoumill         ###   ########.fr       */
+/*   Updated: 2024/11/04 19:30:45 by ssoumill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ int	ft_check_args(int argc, char **argv)
 	i = 1;
 	while (i < argc)
 	{
-        if (ft_atol(argv[1]) == 1)
-            return(1);
+        /* if (ft_atol(argv[1]) == 1)
+            return(1); */
         if (is_num(argv[i]))
             return (1);
         c = ft_atol(argv[i]);

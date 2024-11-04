@@ -6,7 +6,7 @@
 /*   By: ssoumill <ssoumill@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 14:15:59 by ssoumill          #+#    #+#             */
-/*   Updated: 2024/11/04 16:31:45 by ssoumill         ###   ########.fr       */
+/*   Updated: 2024/11/04 19:27:04 by ssoumill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@ int	main(int argc, char **argv)
 		return (printf("Passe moi les scoobiscuits !\n"), 1);
 	if (ft_init(&data, argv, argc))
 		return (1);
+	if (data.nbr_philo == 1)
+	{
+		ft_one_philo(&data);
+		return (0);
+	}
 	if (ft_start_philo(&data))
 		return (1);
 	i = 0;
