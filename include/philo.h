@@ -6,7 +6,7 @@
 /*   By: ssoumill <ssoumill@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 14:09:23 by ssoumill          #+#    #+#             */
-/*   Updated: 2024/11/03 13:59:23 by ssoumill         ###   ########.fr       */
+/*   Updated: 2024/11/04 13:02:44 by ssoumill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,9 @@ typedef struct s_data
 	long				start_time;
 	int					death;
 	pthread_mutex_t		print;
+	pthread_mutex_t		end;
+	pthread_mutex_t		meal;
+	pthread_mutex_t		is_he_dead;
 	t_philo				*philo;
 }						t_data;
 
@@ -59,5 +62,7 @@ void					print_death(t_data *data, int i);
 void					ft_usleep(long time_to_sleep, t_philo *philo);
 long					gettime(void);
 void					monitor(t_data *data, int i);
+int						ft_is_dead(t_data *data);
+int						ft_end(t_data *data);
 
 #endif

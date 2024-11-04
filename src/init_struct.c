@@ -6,7 +6,7 @@
 /*   By: ssoumill <ssoumill@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 17:42:07 by ssoumill          #+#    #+#             */
-/*   Updated: 2024/11/03 12:36:51 by ssoumill         ###   ########.fr       */
+/*   Updated: 2024/11/04 12:57:45 by ssoumill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@ static void	ft_init_struct(t_data *data, char **argv, int argc)
 	data->eating_time = ft_atol(argv[3]);
 	data->sleeping_time = ft_atol(argv[4]);
 	pthread_mutex_init(&data->print, NULL);
+	pthread_mutex_init(&data->is_he_dead, NULL);
+	pthread_mutex_init(&data->meal, NULL);
+	pthread_mutex_init(&data->end, NULL);
 	if (argc == 6)
 		data->nbr_meal = ft_atol(argv[5]);
 	else
