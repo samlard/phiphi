@@ -6,7 +6,7 @@
 /*   By: ssoumill <ssoumill@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 14:09:23 by ssoumill          #+#    #+#             */
-/*   Updated: 2024/11/04 14:24:55 by ssoumill         ###   ########.fr       */
+/*   Updated: 2024/11/04 16:35:17 by ssoumill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ typedef struct s_data
 	long				nbr_meal;
 	long				start_time;
 	int					death;
-	pthread_mutex_t		print;
+	pthread_mutex_t		philo_meal;
 	pthread_mutex_t		end;
-	pthread_mutex_t		meal;
+	pthread_mutex_t		l_meal;
 	pthread_mutex_t		is_he_dead;
 	t_philo				*philo;
 }						t_data;
@@ -63,5 +63,6 @@ long					gettime(void);
 void					monitor(t_data *data, int i);
 int						ft_is_dead(t_data *data);
 int						ft_end(t_data *data);
+int						check_philo_meal(t_philo *philo);
 
 #endif

@@ -1,40 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   utils_2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssoumill <ssoumill@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/21 16:27:37 by ssoumill          #+#    #+#             */
-/*   Updated: 2024/11/04 14:27:52 by ssoumill         ###   ########.fr       */
+/*   Created: 2024/11/04 16:39:18 by ssoumill          #+#    #+#             */
+/*   Updated: 2024/11/04 16:40:12 by ssoumill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	ft_end(t_data *data)
-{
-	pthread_mutex_lock(&data->end);
-	if (data->finish == data->nbr_philo)
-	{
-		pthread_mutex_unlock(&data->end);
-		return (1);
-	}
-	pthread_mutex_unlock(&data->end);
-	return (0);
-}
-
-int	ft_is_dead(t_data *data)
-{
-	pthread_mutex_lock(&data->is_he_dead);
-	if (data->death == 1)
-	{
-		pthread_mutex_unlock(&data->is_he_dead);
-		return (1);
-	}
-	pthread_mutex_unlock(&data->is_he_dead);
-	return (0);
-}
 long	ft_atol(const char *str)
 {
 	long	i;
@@ -61,15 +38,6 @@ long	ft_atol(const char *str)
 	return (nb * signe);
 }
 
-void	print_death(t_data *data, int i)
-{
-	pthread_mutex_lock(&data->is_he_dead);
-	data->death = 0;
-	printf("%zu philo %d is dead \n", gettime() - data->start_time,
-		data->philo[i].id);
-	pthread_mutex_unlock(&data->is_he_dead);
-}
-
 void	ft_usleep(long time_to_sleep, t_philo *philo)
 {
 	long	current_time;
@@ -86,14 +54,14 @@ void	ft_usleep(long time_to_sleep, t_philo *philo)
 		{
 			usleep(200);
 			if (ft_is_dead(philo->data) == 0)
-				break;
+				break ;
 		}
 	}
 }
 
 long	gettime(void)
 {
-	struct timeval	time;
+	struct timeval time;
 
 	if (gettimeofday(&time, NULL) == -1)
 	{
