@@ -6,7 +6,7 @@
 /*   By: ssoumill <ssoumill@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 14:09:23 by ssoumill          #+#    #+#             */
-/*   Updated: 2024/11/04 19:26:57 by ssoumill         ###   ########.fr       */
+/*   Updated: 2024/11/05 17:39:44 by ssoumill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void					monitor(t_data *data, int i);
 int						ft_is_dead(t_data *data);
 int						ft_end(t_data *data);
 int						check_philo_meal(t_philo *philo);
-void    				ft_one_philo(t_data *data);
+void					ft_one_philo(t_data *data);
+void					ft_destroy_mutex(t_data *data);
 
 #endif

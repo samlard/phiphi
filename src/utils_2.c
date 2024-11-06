@@ -6,7 +6,7 @@
 /*   By: ssoumill <ssoumill@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:39:18 by ssoumill          #+#    #+#             */
-/*   Updated: 2024/11/04 19:31:51 by ssoumill         ###   ########.fr       */
+/*   Updated: 2024/11/05 17:39:56 by ssoumill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	ft_usleep(long time_to_sleep, t_philo *philo)
 
 long	gettime(void)
 {
-	struct timeval time;
+	struct timeval	time;
 
 	if (gettimeofday(&time, NULL) == -1)
 	{
@@ -69,4 +69,20 @@ long	gettime(void)
 		return ((long)-1);
 	}
 	return ((time.tv_sec * 1000) + (time.tv_usec / 1000));
+}
+
+void	ft_destroy_mutex(t_data *data)
+{
+	long	i;
+
+	pthread_mutex_destroy(&data->philo_meal);
+	pthread_mutex_destroy(&data->end);
+	pthread_mutex_destroy(&data->l_meal);
+	pthread_mutex_destroy(&data->is_he_dead);
+	i = 0;
+	while (i < data->nbr_philo)
+	{
+		pthread_mutex_destroy(&data->philo[i].left_fork);
+		i++;
+	}
 }

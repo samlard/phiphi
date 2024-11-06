@@ -6,7 +6,7 @@
 /*   By: ssoumill <ssoumill@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 16:16:32 by ssoumill          #+#    #+#             */
-/*   Updated: 2024/11/04 19:30:45 by ssoumill         ###   ########.fr       */
+/*   Updated: 2024/11/05 17:43:14 by ssoumill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,14 @@ static int is_num(char *str)
 int	ft_check_args(int argc, char **argv)
 {
 	int	i;
-	long	c;
 
 	i = 1;
 	while (i < argc)
 	{
-        /* if (ft_atol(argv[1]) == 1)
-            return(1); */
+        if (ft_atol(argv[1]) == 0)
+            return(1);
         if (is_num(argv[i]))
             return (1);
-        c = ft_atol(argv[i]);
-		if (c < 0)
-			return (1);
 		i++;
 	}
 	return (0);
