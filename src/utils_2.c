@@ -6,7 +6,7 @@
 /*   By: ssoumill <ssoumill@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:39:18 by ssoumill          #+#    #+#             */
-/*   Updated: 2024/11/05 17:39:56 by ssoumill         ###   ########.fr       */
+/*   Updated: 2024/11/09 18:17:24 by ssoumill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,18 +71,22 @@ long	gettime(void)
 	return ((time.tv_sec * 1000) + (time.tv_usec / 1000));
 }
 
-void	ft_destroy_mutex(t_data *data)
+void	ft_destroy_mutex(t_data *data, int i, int k)
 {
-	long	i;
+	int j;
 
-	pthread_mutex_destroy(&data->philo_meal);
-	pthread_mutex_destroy(&data->end);
-	pthread_mutex_destroy(&data->l_meal);
-	pthread_mutex_destroy(&data->is_he_dead);
+	j = 0;
+	while (j <= i)
+	{
+		pthread_mutex_destroy(&data->tab[j]);
+		j++;
+	}
+	free(data->tab);
 	i = 0;
-	while (i < data->nbr_philo)
+	while (i <= k)
 	{
 		pthread_mutex_destroy(&data->philo[i].left_fork);
 		i++;
 	}
+	free(data->philo);
 }

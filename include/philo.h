@@ -6,7 +6,7 @@
 /*   By: ssoumill <ssoumill@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 14:09:23 by ssoumill          #+#    #+#             */
-/*   Updated: 2024/11/05 17:39:44 by ssoumill         ###   ########.fr       */
+/*   Updated: 2024/11/09 16:07:25 by ssoumill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct s_data
 	pthread_mutex_t		end;
 	pthread_mutex_t		l_meal;
 	pthread_mutex_t		is_he_dead;
+	pthread_mutex_t		*tab;
 	t_philo				*philo;
 }						t_data;
 
@@ -63,6 +64,6 @@ int						ft_is_dead(t_data *data);
 int						ft_end(t_data *data);
 int						check_philo_meal(t_philo *philo);
 void					ft_one_philo(t_data *data);
-void					ft_destroy_mutex(t_data *data);
+void					ft_destroy_mutex(t_data *data, int i, int k);
 
 #endif

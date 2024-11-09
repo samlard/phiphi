@@ -6,7 +6,7 @@
 /*   By: ssoumill <ssoumill@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 14:15:59 by ssoumill          #+#    #+#             */
-/*   Updated: 2024/11/06 13:38:53 by ssoumill         ###   ########.fr       */
+/*   Updated: 2024/11/09 18:08:28 by ssoumill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ int	main(int argc, char **argv)
 	while (i < data.nbr_philo)
 	{
 		if (pthread_join(data.philo[i].thread, NULL))
-			return (1);
+			return (ft_destroy_mutex(&data, 4, data.nbr_philo - 1), 1);
 		i++;
 	}
-	ft_destroy_mutex(&data);
-	free(data.philo);
+	ft_destroy_mutex(&data, 4, data.nbr_philo - 1);
+	system("leaks philo");
 	return (0);
 }

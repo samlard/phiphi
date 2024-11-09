@@ -6,7 +6,7 @@
 /*   By: ssoumill <ssoumill@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 16:27:37 by ssoumill          #+#    #+#             */
-/*   Updated: 2024/11/06 13:40:29 by ssoumill         ###   ########.fr       */
+/*   Updated: 2024/11/09 15:55:43 by ssoumill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,3 @@ void	print_death(t_data *data, int i)
 		data->philo[i].id);
 	pthread_mutex_unlock(&data->is_he_dead);
 }
-
-int

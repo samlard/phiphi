@@ -6,7 +6,7 @@
 /*   By: ssoumill <ssoumill@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 19:16:26 by ssoumill          #+#    #+#             */
-/*   Updated: 2024/11/06 13:38:20 by ssoumill         ###   ########.fr       */
+/*   Updated: 2024/11/09 18:17:13 by ssoumill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,5 @@ void    ft_one_philo(t_data *data)
     ft_usleep(data->death_time, NULL);
     printf("%zu %d philo died\n", gettime()
 				- data->start_time, data->philo->id);
-    free()
+    ft_destroy_mutex(data, 3, -1);
 }
