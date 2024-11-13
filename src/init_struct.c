@@ -6,7 +6,7 @@
 /*   By: ssoumill <ssoumill@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 17:42:07 by ssoumill          #+#    #+#             */
-/*   Updated: 2024/11/09 16:08:39 by ssoumill         ###   ########.fr       */
+/*   Updated: 2024/11/13 15:23:35 by ssoumill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,11 @@ static int	ft_init_philo(t_data *data)
 	while (i < data->nbr_philo)
 	{
 		(data->philo[i]).is_dead = 1;
-		(data->philo[i]).id = i;
+		(data->philo[i]).id = i + 1;
 		(data->philo[i]).data = data;
 		(data->philo[i]).meal_eat = 0;
 		if (pthread_mutex_init(&((data->philo[i]).left_fork), NULL) != 0)
-			return (ft_destroy_mutex(data, 4, i - 1), 1);
+			return (ft_destroy_mutex(data, 3, i - 1), 1);
 		data->philo[i].right_fork = &data->philo[(i + 1)
 			% data->nbr_philo].left_fork;
 		i++;
@@ -90,7 +90,7 @@ int	ft_start_philo(t_data *data)
 		data->philo[i].t_last_meal = data->start_time;
 		if (pthread_create(&(data->philo[i].thread), NULL, &routine,
 				&data->philo[i]))
-			return (ft_destroy_mutex(data, 4, data->nbr_philo - 1), 1);
+			return (ft_destroy_mutex(data, 3, data->nbr_philo - 1), 1);
 		i++;
 	}
 	return (0);

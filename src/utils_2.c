@@ -6,7 +6,7 @@
 /*   By: ssoumill <ssoumill@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:39:18 by ssoumill          #+#    #+#             */
-/*   Updated: 2024/11/09 18:17:24 by ssoumill         ###   ########.fr       */
+/*   Updated: 2024/11/13 14:42:26 by ssoumill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ long	gettime(void)
 
 void	ft_destroy_mutex(t_data *data, int i, int k)
 {
-	int j;
+	int	j;
 
 	j = 0;
 	while (j <= i)

@@ -6,7 +6,7 @@
 /*   By: ssoumill <ssoumill@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 16:27:37 by ssoumill          #+#    #+#             */
-/*   Updated: 2024/11/09 15:55:43 by ssoumill         ###   ########.fr       */
+/*   Updated: 2024/11/13 14:42:48 by ssoumill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	check_philo_meal(t_philo *philo)
 	pthread_mutex_unlock(&philo->data->philo_meal);
 	return (0);
 }
+
 int	ft_end(t_data *data)
 {
 	pthread_mutex_lock(&data->end);

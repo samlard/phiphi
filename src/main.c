@@ -6,7 +6,7 @@
 /*   By: ssoumill <ssoumill@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 14:15:59 by ssoumill          #+#    #+#             */
-/*   Updated: 2024/11/09 18:08:28 by ssoumill         ###   ########.fr       */
+/*   Updated: 2024/11/13 15:29:13 by ssoumill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	main(int argc, char **argv)
 {
-	t_data data;
-	int i;
+	t_data	data;
+	int		i;
 
 	if ((ft_check_args(argc, argv) || argc < 5 || argc > 6))
 		return (printf("Bad input\n"), 1);
@@ -31,10 +31,10 @@ int	main(int argc, char **argv)
 	while (i < data.nbr_philo)
 	{
 		if (pthread_join(data.philo[i].thread, NULL))
-			return (ft_destroy_mutex(&data, 4, data.nbr_philo - 1), 1);
+			return (ft_destroy_mutex(&data, 3, data.nbr_philo - 1), 1);
 		i++;
 	}
-	ft_destroy_mutex(&data, 4, data.nbr_philo - 1);
+	ft_destroy_mutex(&data, 3, data.nbr_philo - 1);
 	system("leaks philo");
 	return (0);
 }
