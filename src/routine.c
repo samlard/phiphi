@@ -6,7 +6,7 @@
 /*   By: ssoumill <ssoumill@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 12:38:12 by ssoumill          #+#    #+#             */
-/*   Updated: 2024/11/05 17:57:15 by ssoumill         ###   ########.fr       */
+/*   Updated: 2024/11/13 18:03:26 by ssoumill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ void	eating(t_philo *philo)
 		pthread_mutex_lock(&philo->data->l_meal);
 		philo->t_last_meal = gettime();
 		pthread_mutex_unlock(&philo->data->l_meal);
-		pthread_mutex_unlock(philo->right_fork);
 		pthread_mutex_unlock(&philo->left_fork);
+		pthread_mutex_unlock(philo->right_fork);
 	}
 	else
 	{

@@ -6,7 +6,7 @@
 /*   By: ssoumill <ssoumill@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 14:15:59 by ssoumill          #+#    #+#             */
-/*   Updated: 2024/11/13 15:29:13 by ssoumill         ###   ########.fr       */
+/*   Updated: 2024/11/13 16:26:12 by ssoumill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,6 @@ int	main(int argc, char **argv)
 		i++;
 	}
 	ft_destroy_mutex(&data, 3, data.nbr_philo - 1);
-	system("leaks philo");
+	//system("leaks philo");
 	return (0);
 }
