@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   routine.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ssoumill <ssoumill@student.s19.be>         +#+  +:+       +#+        */
+/*   By: ssoumill <ssoumill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 12:38:12 by ssoumill          #+#    #+#             */
-/*   Updated: 2024/11/13 18:03:26 by ssoumill         ###   ########.fr       */
+/*   Updated: 2024/12/22 14:44:41 by ssoumill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,6 @@ void	eating(t_philo *philo)
 {
 	if (ft_is_dead(philo->data) == 1)
 	{
-		pthread_mutex_lock(&philo->data->l_meal);
-		philo->t_last_meal = gettime();
-		pthread_mutex_unlock(&philo->data->l_meal);
 		printf("%zu %d philosopher is eating\n", gettime()
 			- philo->data->start_time, philo->id);
 		pthread_mutex_lock(&philo->data->philo_meal);

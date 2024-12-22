@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   monitor.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ssoumill <ssoumill@student.s19.be>         +#+  +:+       +#+        */
+/*   By: ssoumill <ssoumill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/03 12:32:27 by ssoumill          #+#    #+#             */
-/*   Updated: 2024/11/13 17:37:08 by ssoumill         ###   ########.fr       */
+/*   Updated: 2024/12/22 14:23:04 by ssoumill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	monitor(t_data *data, int i)
 		i = 0;
 		while (i < data->nbr_philo)
 		{
-			//printf("philo %d time since last_meal %zu \n", data->philo[i].id,gettime() - data->philo[i].t_last_meal );
 			if (check_philo_meal(&data->philo[i]) == 0)
 			{
 				pthread_mutex_lock(&data->l_meal);
